@@ -57,7 +57,7 @@ void find_result(int index, vector<char> &arr, vector<char> &res, vector<vector<
 
 int main()
 {
-    vector<char> arr = {'a', 'b', 'c'};
+    vector<char> arr = {'a', 'b', 'd'};
 
     vector<vector<char>> result;
     vector<char> res;
