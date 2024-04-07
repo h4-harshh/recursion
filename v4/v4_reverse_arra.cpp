@@ -1,16 +1,19 @@
+// // using two pointer
 // #include <bits/stdc++.h>
 // using namespace std;
-// void rev(vector<int> &v, int l, int h)
+
+// void rev(vector<int> &v, int l, int r)
 // {
-//     if (l >= h)
+//     if (l >= r)
 //         return;
-//     swap(v[l], v[h]);
-//     rev(v, l + 1, h - 1);
+
+//     swap(v[l], v[r]);
+//     rev(v, l + 1, r - 1);
 // }
 
 // int main()
 // {
-//     vector<int> v = {5, 4, 7, 3};
+//     vector<int> v = {5, 4, 8, 7, 3};
 //     rev(v, 0, v.size() - 1);
 //     for (auto x : v)
 //     {
@@ -23,14 +26,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void rev(vector<int> &v, int i)
+void rev(vector<int> &v, int index)
 {
-    if (i >= (v.size() / 2))
+    if (index >= v.size() / 2)
         return;
 
-    swap(v[i], v[v.size() - i - 1]);
+    swap(v[index], v[v.size() - index - 1]);
 
-    rev(v, i + 1);
+    rev(v, index + 1);
 }
 
 int main()
