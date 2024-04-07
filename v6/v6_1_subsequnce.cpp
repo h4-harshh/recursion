@@ -1,31 +1,77 @@
-// print all subsequences of an array
+// //applying onn numbers
+// #include <bits/stdc++.h>
+// using namespace std;
+// void find_result(int index, vector<int> &arr, vector<int> &res, vector<vector<int>> &result)
+// {
+//     if (index >= arr.size())
+//     {
+//         result.push_back(res);
+//         return;
+//     }
+
+//     find_result(index + 1, arr, res, result);
+
+//     res.push_back(arr[index]);
+//     find_result(index + 1, arr, res, result);
+//     res.pop_back();
+// }
+
+// int main()
+// {
+//     vector<int> arr = {3, 6, 2};
+
+//     vector<vector<int>> result;
+//     vector<int> res;
+//     find_result(0, arr, res, result);
+
+//     for (auto it : result)
+//     {
+//         if (!it.size())
+//             cout << "_";
+//         for (auto x : it)
+//         {
+//             cout << x << " ";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+// applying onn character array
 #include <bits/stdc++.h>
 using namespace std;
-
-void find_subsequence(int index, vector<int> arr, vector<int> &res)
+void find_result(int index, vector<char> &arr, vector<char> &res, vector<vector<char>> &result)
 {
     if (index >= arr.size())
     {
-        for (auto x : res)
-        {
-            cout << x << " ";
-        }
-        cout << endl;
+        result.push_back(res);
         return;
     }
-    // without taking the element
-    find_subsequence(index + 1, arr, res);
 
-    // with taking the element
+    find_result(index + 1, arr, res, result);
+
     res.push_back(arr[index]);
-    find_subsequence(index + 1, arr, res);
+    find_result(index + 1, arr, res, result);
     res.pop_back();
 }
 
 int main()
 {
-    vector<int> arr = {3, 6, 2};
-    vector<int> res;
-    find_subsequence(0, arr, res);
+    vector<char> arr = {'a', 'b', 'c'};
+
+    vector<vector<char>> result;
+    vector<char> res;
+    find_result(0, arr, res, result);
+
+    for (auto it : result)
+    {
+        if (!it.size())
+            cout << "_";
+        for (auto x : it)
+        {
+            cout << x << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
