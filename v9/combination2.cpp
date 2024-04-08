@@ -6,23 +6,21 @@ using namespace std;
 
 void combinations(int index, vector<int> &arr, int target, vector<int> &ds, vector<vector<int>> &result)
 {
+
     if (target == 0)
     {
+
         result.push_back(ds);
         return;
     }
 
     for (int i = index; i < arr.size(); i++)
     {
-        if (i > index && arr[i] == arr[i - 1])
-        {
+        if (i != index && arr[i] == arr[i - 1])
             continue;
-        }
 
         if (arr[i] > target)
-        {
             break;
-        }
 
         ds.push_back(arr[i]);
         combinations(i + 1, arr, target - arr[i], ds, result);
@@ -31,9 +29,8 @@ void combinations(int index, vector<int> &arr, int target, vector<int> &ds, vect
 }
 vector<vector<int>> find_combinations(vector<int> arr, int target)
 {
-    vector<vector<int>> result;
     vector<int> ds;
-    sort(arr.begin(), arr.end());
+    vector<vector<int>> result;
     combinations(0, arr, target, ds, result);
     return result;
 }
