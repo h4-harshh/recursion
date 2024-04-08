@@ -1,26 +1,50 @@
+// all unique subset of an array
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve(int index, vector<int> &arr, vector<int> &res, vector<vector<int>> &result)
+// void solve(int index, vector<int> &arr, vector<int> &res, vector<vector<int>> &result)
+// {
+//     result.push_back(res);
+//     for (int i = index; i < arr.size(); i++)
+//     {
+//         if (i != index && arr[i] == arr[i - 1])
+//             continue;
+
+//         res.push_back(arr[i]);
+//         solve(i + 1, arr, res, result);
+//         res.pop_back();
+//     }
+// }
+
+// vector<vector<int>> find_subset(vector<int> arr)
+// {
+//     vector<vector<int>> result;
+//     vector<int> res;
+//     sort(arr.begin(), arr.end());
+//     solve(0, arr, res, result);
+//     return result;
+// }
+void solve(int index, vector<int> &arr, vector<int> &ds, vector<vector<int>> &result)
 {
-    result.push_back(res);
+
+    result.push_back(ds);
+
     for (int i = index; i < arr.size(); i++)
     {
         if (i != index && arr[i] == arr[i - 1])
             continue;
 
-        res.push_back(arr[i]);
-        solve(i + 1, arr, res, result);
-        res.pop_back();
+        ds.push_back(arr[i]);
+        solve(i + 1, arr, ds, result);
+        ds.pop_back();
     }
 }
-
-vector<vector<int>> find_subset(vector<int> arr)
+vector<vector<int>> find_subset(vector<int> &arr)
 {
     vector<vector<int>> result;
-    vector<int> res;
+    vector<int> ds;
     sort(arr.begin(), arr.end());
-    solve(0, arr, res, result);
+    solve(0, arr, ds, result);
     return result;
 }
 int main()
