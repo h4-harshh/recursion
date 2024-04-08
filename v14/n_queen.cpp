@@ -81,6 +81,7 @@ vector<vector<string>> find_valid(int n)
 
     return result;
 }
+
 int main()
 {
     int n = 4;
